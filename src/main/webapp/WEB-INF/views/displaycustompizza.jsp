@@ -9,6 +9,15 @@
 </head>
 <body>
 <h1>Your Pizza</h1>
-<h3>You've created a ${size} ${crust} pizza with ${sauce} and ${cheese}, ${toppings} on top.</h3>
+<h3>Size: ${size}</h3>
+<h3>Crust: ${crust}</h3>
+<h3>Sauce: ${sauce}</h3>
+<h3>Cheese: ${cheese}</h3>
+<h3>Toppings: ${toppings}</h3>
+<h3>Special Requests: ${request}</h3>
+<h3>Food Sensitivities: ${allergy}</h3>
+<h3>Total: $${finalTotal}</h3>
+<br>
+<a href="/" class="button">Back</a>
 </body>
 </html>

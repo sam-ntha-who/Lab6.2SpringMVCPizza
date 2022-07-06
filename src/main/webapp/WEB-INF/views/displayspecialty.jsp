@@ -7,9 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css">
-<title>Insert title here</title>
+<title>Specialty Pizza</title>
 </head>
 <body>
-
+    <h1>Specialty Pizza</h1>
+    <div>
+        <h2>Thanks for ordering a ${size} ${pizza} Pizza</h2>
+     
+        </div>
+    
+        <br>
+        <a href="/" class="button">Back</a>
 </body>
 </html>

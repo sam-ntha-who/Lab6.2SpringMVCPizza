@@ -20,8 +20,8 @@ h2 {
     font-size: 200%;
     margin: 5px;
     padding: 5px;
-
 }
+
 h3 {
     color: white;
     font-size: 150%;
@@ -71,4 +71,9 @@ a {
     height: 50%;
     width: 500px;
   }
+
+ul, li {
+    font-weight: 200;
+    color: white;
+}
   

@@ -13,7 +13,7 @@
         <h1>Leave us a Review</h1>
         <form action="/displayreview" method="post">
         <table>
-       		<tr><td> Name: </td><td><input name="name" type="text"/></td></tr>
+       		<tr><td>Name: </td><td><input name="name" type="text"/></td></tr>
         	<tr><td>Comment: </td><td><input name="comment" type="text"/></td></tr>
         	<tr><td>Rating: </td>
         	<td><input id = "5" name = "rating" type = "radio" value = "5 Star" checked = "checked"/><label for = "5">5 - Delicious</label>
@@ -26,7 +26,7 @@
       	<br>
         <input class="button" type="submit"/>
         <input class="button" type="reset" value="Reset" />
-        
+        <a href="/" class="button">Back</a>
 
         </form>
     </body>
