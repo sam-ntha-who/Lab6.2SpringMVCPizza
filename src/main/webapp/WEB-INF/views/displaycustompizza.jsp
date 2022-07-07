@@ -18,6 +18,6 @@
 <h3>Food Sensitivities: ${allergy}</h3>
 <h3>Total: $${finalTotal}</h3>
 <br>
-<a href="/" class="button">Back</a>
+<a href="/" class="button">Home</a>
 </body>
 </html>

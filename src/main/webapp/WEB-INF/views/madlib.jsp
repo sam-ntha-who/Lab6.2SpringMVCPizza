@@ -14,9 +14,15 @@
     <h1>Pizza Madlibs!</h1>
     <form action="/displaymadlib" method="post">
         <table>
-       		<tr><td>Enter a food: </td><td><input name="food1" type="text"/></td></tr>
-            <tr><td>Enter a name: </td><td><input name="name1" type="text"/></td></tr>
+       		<tr><td>Enter a name: </td><td><input name="name1" type="text"/></td></tr>
+       		<tr><td>Enter another name: </td><td><input name="name2" type="text"/></td></tr>
+       		<tr><td>Enter another name: </td><td><input name="name3" type="text"/></td></tr>
+        	<tr><td>Enter a food: </td><td><input name="food1" type="text"/></td></tr>
+        	<tr><td>Enter an occupation: </td><td><input name="occupation1" type="text"/></td></tr>
+        	<tr><td>Enter a location: </td><td><input name="location1" type="text"/></td></tr>
+        	<tr><td>Enter an adjective: </td><td><input name="adjective1" type="text"/></td></tr>
         	<tr><td>Enter a verb: </td><td><input name="verb1" type="text"/></td></tr>
+        	<tr><td>Enter a body part: </td><td><input name="bodypart1" type="text"/></td></tr>
         	
 	       </table>
       	<br>

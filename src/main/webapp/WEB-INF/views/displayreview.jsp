@@ -17,6 +17,7 @@
 <h3>I give it a ${rating} rating</h3>
 
 </div>
-<a href="/" class="button">Back</a>
+<br>
+<a href="/" class="button">Home</a>
 </body>
 </html>

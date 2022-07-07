@@ -18,6 +18,6 @@
         </div>
     
         <br>
-        <a href="/" class="button">Back</a>
+        <a href="/" class="button">Home</a>
 </body>
 </html>

@@ -38,23 +38,38 @@ public class PizzaController {
 	}
 	
 	@PostMapping("/madlib") 
-	public String submitMadlib(@RequestParam String food1, @RequestParam String verb1, @RequestParam String name1, 
-			Model model) {
+	public String submitMadlib(@RequestParam String food1, @RequestParam String occupation1, 
+			@RequestParam String name1, @RequestParam String name2, @RequestParam String name3, 
+			@RequestParam String location1, @RequestParam String adjective1, @RequestParam String verb1, 
+			@RequestParam String bodypart1, Model model) {
 		model.addAttribute("food1", food1);
 		model.addAttribute("name1", name1);
+		model.addAttribute("name2", name2);
+		model.addAttribute("name3", name3);
+		model.addAttribute("occupation1", occupation1);
+		model.addAttribute("location1", location1);
+		model.addAttribute("adjective1", adjective1);
 		model.addAttribute("verb1", verb1);
+		model.addAttribute("bodypart1", bodypart1);
 		
 		return "madlib";
 	}
 	
 	// displays filled out review
 	@RequestMapping("/displaymadlib")
-	public String displayMadlib(@RequestParam String food1, @RequestParam String verb1, @RequestParam String name1, Model model) {
+	public String displayMadlib(@RequestParam String food1, @RequestParam String occupation1, 
+			@RequestParam String name1, @RequestParam String name2, @RequestParam String name3, 
+			@RequestParam String location1, @RequestParam String adjective1, @RequestParam String verb1, 
+			@RequestParam String bodypart1, Model model) {
 		model.addAttribute("food1", food1);
 		model.addAttribute("name1", name1);
+		model.addAttribute("name2", name2);
+		model.addAttribute("name3", name3);
+		model.addAttribute("occupation1", occupation1);
+		model.addAttribute("location1", location1);
+		model.addAttribute("adjective1", adjective1);
 		model.addAttribute("verb1", verb1);
-
-		
+		model.addAttribute("bodypart1", bodypart1);
 		return "displaymadlib";
 	}
 	// displays empty review page - ready for input
@@ -131,7 +146,7 @@ public class PizzaController {
 	// needs to implement order logic
 	@RequestMapping("/displaycustompizza") 
 	public String displayCustomPizza(@RequestParam String size, @RequestParam String crust,
-			@RequestParam String sauce, @RequestParam String cheese, @RequestParam String toppings, @RequestParam String request,
+			@RequestParam String sauce, @RequestParam (name = "cheese", required = false, defaultValue="No Cheese") String cheese, @RequestParam (name = "toppings", required = false, defaultValue="None Selected") String toppings, @RequestParam String request,
 			Model model) {
 		model.addAttribute("size", size);
 		model.addAttribute("crust", crust);
@@ -161,7 +176,7 @@ public class PizzaController {
 			total += 2.00;
 		}
 		
-		if (gf = true) {
+		if (gf == true) {
 			allergy += "Gluten Free: Yes";
 		}
 		
