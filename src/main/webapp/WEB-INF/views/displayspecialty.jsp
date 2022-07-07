@@ -12,7 +12,8 @@
 <body>
     <h1>Specialty Pizza</h1>
     <div>
-        <h2>Thanks for ordering a ${size} ${pizza} Pizza</h2>
+        <h2>Thanks for ordering a ${size} ${pizza} Pizza!</h2>
+        <h2>Your total is $${price}</h2>
      
         </div>
     

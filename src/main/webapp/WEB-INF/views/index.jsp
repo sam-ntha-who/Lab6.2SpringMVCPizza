@@ -17,6 +17,8 @@
        <a href="/custom" class="button">Custom Pizza Builder</a>
 
        <a href="/review" class="button">Leave a Review</a>
+       
+       <a href="/madlib" class="button">Madlibs!</a>
        <br>
        <br>
      </div>

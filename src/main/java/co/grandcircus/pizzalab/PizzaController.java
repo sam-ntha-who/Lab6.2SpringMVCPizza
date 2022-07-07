@@ -31,6 +31,32 @@ public class PizzaController {
 	public String showCustomPizzaBuilder() {
 		return "custom";
 	}
+	// show pizza madlib page
+	@RequestMapping("/madlib")
+	public String showMadlib() {
+		return "madlib";
+	}
+	
+	@PostMapping("/madlib") 
+	public String submitMadlib(@RequestParam String food1, @RequestParam String verb1, @RequestParam String name1, 
+			Model model) {
+		model.addAttribute("food1", food1);
+		model.addAttribute("name1", name1);
+		model.addAttribute("verb1", verb1);
+		
+		return "madlib";
+	}
+	
+	// displays filled out review
+	@RequestMapping("/displaymadlib")
+	public String displayMadlib(@RequestParam String food1, @RequestParam String verb1, @RequestParam String name1, Model model) {
+		model.addAttribute("food1", food1);
+		model.addAttribute("name1", name1);
+		model.addAttribute("verb1", verb1);
+
+		
+		return "displaymadlib";
+	}
 	// displays empty review page - ready for input
 	@PostMapping("/review") 
 	public String submitReview(@RequestParam String name,
@@ -56,6 +82,24 @@ public class PizzaController {
 	public String displaySpecialty(@RequestParam String pizza, @RequestParam String size, Model model) {
 		model.addAttribute("size", size);
 		model.addAttribute("pizza", pizza);
+			
+		double total = 0;
+		String price = "";
+
+		if (size.equals("Small")) {
+			total = 10; 
+		} else if (size.equals("Medium")) {
+			total = 12;
+		} else if (size.equals("Large")) {
+			total = 15;
+		} else if (size.equals("XLarge")) {
+			total = 18;
+		}
+	
+		DecimalFormat doubleZero = new DecimalFormat("0.00");
+		price = doubleZero.format(total);
+		model.addAttribute("price", price);
+		
 		
 		return "displayspecialty";
 	}
@@ -64,6 +108,7 @@ public class PizzaController {
 		public String submitSpecialtyPizza(@RequestParam String pizza, @RequestParam String size, Model model) {
 			model.addAttribute("size", size);
 			model.addAttribute("pizza", pizza);
+			
 			return "specialty";
 		}
 	
@@ -120,7 +165,11 @@ public class PizzaController {
 			allergy += "Gluten Free: Yes";
 		}
 		
-		if (cheese.contains("(v)") || toppings.contains("(v)")) {
+		if (cheese.contains("(v)")) {
+			allergy += " Dairy Free: Yes";
+		}
+		
+		if (toppings.contains("(v)")) {
 			allergy += " Vegan: Yes";
 		}
 		

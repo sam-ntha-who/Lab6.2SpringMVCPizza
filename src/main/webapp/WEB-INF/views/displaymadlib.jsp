@@ -2,21 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Display Review</title>
+<title>Madlibs</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div>
-<h2>Thanks for taking the time to leave a review!</h2>
-<h3>My name is: ${name}</h3>
-<h3>This is how I feel about the food: ${comment}</h3>
-<h3>I give it a ${rating} rating</h3>
-
-</div>
-<a href="/" class="button">Back</a>
+<h1>Pizza Madlibs!</h1>
+<h3>${name1}'s favorite pizza is a ${food1} pizza! He likes to eat because it helps him ${verb1}.</h3>
 </body>
 </html>
