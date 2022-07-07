@@ -97,25 +97,9 @@ public class PizzaController {
 	public String displaySpecialty(@RequestParam String pizza, @RequestParam String size, Model model) {
 		model.addAttribute("size", size);
 		model.addAttribute("pizza", pizza);
-			
-		double total = 0;
-		String price = "";
-
-		if (size.equals("Small")) {
-			total = 10; 
-		} else if (size.equals("Medium")) {
-			total = 12;
-		} else if (size.equals("Large")) {
-			total = 15;
-		} else if (size.equals("XLarge")) {
-			total = 18;
-		}
+		
+		MathMethods.specialtyPizzaPrice(size, model);
 	
-		DecimalFormat doubleZero = new DecimalFormat("0.00");
-		price = doubleZero.format(total);
-		model.addAttribute("price", price);
-		
-		
 		return "displayspecialty";
 	}
 	// displays specialty pizza page - ready for input
@@ -143,10 +127,11 @@ public class PizzaController {
 		return "custom";
 	}
 	// displays custom pizza that customer is ordering
-	// needs to implement order logic
+
 	@RequestMapping("/displaycustompizza") 
 	public String displayCustomPizza(@RequestParam String size, @RequestParam String crust,
-			@RequestParam String sauce, @RequestParam (name = "cheese", required = false, defaultValue="No Cheese") String cheese, @RequestParam (name = "toppings", required = false, defaultValue="None Selected") String toppings, @RequestParam String request,
+			@RequestParam String sauce, @RequestParam (name = "cheese", required = false, defaultValue="No Cheese") String cheese, 
+			@RequestParam (name = "toppings", required = false, defaultValue="None Selected") String toppings, @RequestParam String request,
 			Model model) {
 		model.addAttribute("size", size);
 		model.addAttribute("crust", crust);
@@ -154,46 +139,8 @@ public class PizzaController {
 		model.addAttribute("cheese", cheese);
 		model.addAttribute("toppings", toppings);
 		model.addAttribute("request", request);
-		
-		double total = 0;
-		String finalTotal = "";
-		int numToppings = toppings.split(",").length;
-		model.addAttribute("numToppings", numToppings);
-		boolean gf = false;
-		String allergy = "";
-		if (size.equals("Small")) {
-			total = 7 + (numToppings * .50); 
-		} else if (size.equals("Medium")) {
-			total = 10 + (numToppings * 1.00);
-		} else if (size.equals("Large")) {
-			total = 12 + (numToppings * 1.25);
-		} else if (size.equals("XLarge")) {
-			total = 15 + (numToppings * 1.50);
-		}
-		
-		if (crust.equals("Gluten Free")) {
-			gf = true;
-			total += 2.00;
-		}
-		
-		if (gf == true) {
-			allergy += "Gluten Free: Yes";
-		}
-		
-		if (cheese.contains("(v)")) {
-			allergy += " Dairy Free: Yes";
-		}
-		
-		if (toppings.contains("(v)")) {
-			allergy += " Vegan: Yes";
-		}
-		
-		model.addAttribute("allergy", allergy);
-		
-		DecimalFormat doubleZero = new DecimalFormat("0.00");
-		finalTotal = doubleZero.format(total);
-		
-		model.addAttribute("finalTotal", finalTotal);
+
+		MathMethods.customPizzaPrice(size, crust, cheese, toppings, model);
 		
 		return "displaycustompizza";
 	}
