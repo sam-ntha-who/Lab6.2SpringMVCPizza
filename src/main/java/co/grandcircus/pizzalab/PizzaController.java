@@ -1,13 +1,11 @@
 package co.grandcircus.pizzalab;
 
-
-import java.text.DecimalFormat;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+// import javax.validation.constraints.Size;
 
 @Controller
 public class PizzaController {
@@ -85,7 +83,8 @@ public class PizzaController {
 	}
 	// displays filled out review
 	@RequestMapping("/displayreview")
-	public String displayReview(@RequestParam String name, @RequestParam String comment, @RequestParam String rating, Model model) {
+	// @Size(min= 5, message = "firstname length must be between 1 and 5", name = "comment", required = true)
+	public String displayReview(@RequestParam (name = "name", required = true) String name , @RequestParam (name = "comment", required = true) String comment, @RequestParam (name = "rating", required = true) String rating, Model model) {
 		model.addAttribute("name", name);
 		model.addAttribute("comment", comment);
 		model.addAttribute("rating", rating);
