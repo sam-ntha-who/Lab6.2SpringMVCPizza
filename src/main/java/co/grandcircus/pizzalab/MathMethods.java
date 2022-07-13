@@ -22,7 +22,7 @@ public class MathMethods {
 		} else if (size.equals("XLarge")) {
 			total = 15 + (numToppings * 1.50);
 		}
-		
+				
 		if (crust.equals("Gluten Free")) {
 			gf = true;
 			total += 2.00;
@@ -42,6 +42,8 @@ public class MathMethods {
 		DecimalFormat doubleZero = new DecimalFormat("0.00");
 		finalTotal = doubleZero.format(total);
 		
+		
+	
 		model.addAttribute("allergy", allergy);
 		model.addAttribute("finalTotal", finalTotal);
 	}
@@ -68,4 +70,12 @@ public class MathMethods {
 	
 	}
 
+	public static boolean toppingsValid(int numToppings) {
+		if (numToppings >= 0 && numToppings <= 10) {
+			return true;
+		} else {
+		return false;
+		}
+	}
+	
 }

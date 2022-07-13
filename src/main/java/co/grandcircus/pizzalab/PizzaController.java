@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-// import javax.validation.constraints.Size;
+
 
 @Controller
 public class PizzaController {
@@ -78,16 +78,23 @@ public class PizzaController {
 		model.addAttribute("name", name);
 		model.addAttribute("comment", comment);
 		model.addAttribute("rating", rating);
+
 		
 		return "review";
 	}
 	// displays filled out review
 	@RequestMapping("/displayreview")
-	// @Size(min= 5, message = "firstname length must be between 1 and 5", name = "comment", required = true)
-	public String displayReview(@RequestParam (name = "name", required = true) String name , @RequestParam (name = "comment", required = true) String comment, @RequestParam (name = "rating", required = true) String rating, Model model) {
+	
+	public String displayReview(@RequestParam (name = "name", required = true) String name , @RequestParam(name = "comment", required = true) String comment, @RequestParam (name = "rating", required = true) String rating, Model model) {
 		model.addAttribute("name", name);
 		model.addAttribute("comment", comment);
 		model.addAttribute("rating", rating);
+	
+	    	 
+		// if comment is less than 5 characters, reload review page
+		if (comment.length() < 5) {
+			return "review";
+		}
 		
 		return "displayreview";
 	}
@@ -140,6 +147,10 @@ public class PizzaController {
 		model.addAttribute("request", request);
 
 		MathMethods.customPizzaPrice(size, crust, cheese, toppings, model);
+		// if toppings is greater than 10, reload custom pizza page
+		if (MathMethods.toppingsValid(toppings.split(",").length) == false) {
+			return "custom";
+		}
 		
 		return "displaycustompizza";
 	}
